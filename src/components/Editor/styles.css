@@ -27,3 +27,9 @@ textarea {
   display: flex;
   justify-content: space-between;
 }
+
+.Editor .emotion_list_wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 2%;
+}

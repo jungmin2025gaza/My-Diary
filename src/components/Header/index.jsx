@@ -8,6 +8,6 @@ const Header = ({ title, leftChild, rightChild }) => {
       <div className="header_right">{rightChild}</div>
     </div>
   );
-}
+};
 
 export default Header;

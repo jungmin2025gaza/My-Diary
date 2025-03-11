@@ -1,5 +1,7 @@
 import "./styles.css";
 import Button from "../Button";
+import EmotionItem from "../EmotionItem";
+import { emotionList } from "../../utils/util";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,15 +19,22 @@ const Editor = ({ initData, onSubmit }) => {
       ...state,
       [e.target.name]: e.target.value,
     })
-  }
+  };
 
   const handleSubmit = () => {
     onSubmit(state);
-  }
+  };
 
   const handleGoBack = () => {
     navigate(-1);
-  }
+  };
+
+  const handleChangeEmotion = (emotionId) => {
+    setState({
+      ...state,
+      emotionId,
+    });
+  };
 
   return (
     <div className="Editor">
@@ -38,6 +47,17 @@ const Editor = ({ initData, onSubmit }) => {
 
       <div className="editor_section">
         <h4>오늘의 감정</h4>
+        <div className="input_wrapper emotion_list_wrapper">
+          {emotionList.map((item) => (
+            <EmotionItem
+              key={item.id}
+              {...item}
+              onClick={handleChangeEmotion}
+              isSelected={state.emotionId === item.id}
+            />
+
+          ))}
+        </div>
       </div>
 
       <div className="editor_section">
