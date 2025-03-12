@@ -1,8 +1,8 @@
-import "./styles.css";
 import Header from "../Header";
 import Button from "../Button";
 import Viewer from "../Viewer";
 import useDiary from "../../hooks/useDiary";
+
 import { useParams, useNavigate } from "react-router-dom";
 
 const Diary = () => {

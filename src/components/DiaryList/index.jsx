@@ -1,6 +1,7 @@
 import "./styles.css";
 import Button from "../Button";
 import DiaryItem from "../DiaryItem";
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -45,15 +46,15 @@ const DiaryList = ({ data }) => {
 
         <div className="right_col">
           <Button
-            type="positive"
-            text="새 일기 쓰기"
+            type={"positive"}
+            text={"새 일기 쓰기"}
             onClick={onClickNew}
           />
         </div>
       </div>
 
       <div className="list_wrapper">
-        {sortedData.map((data) => (
+        {sortedData.length > 0 && sortedData.map((data) => (
           <DiaryItem key={data.id} {...data} />
         ))}
       </div>

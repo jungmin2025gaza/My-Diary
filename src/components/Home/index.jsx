@@ -34,8 +34,8 @@ const Home = () => {
     <div>
       <Header
         title={headerTitle}
-        leftChild={<Button text="<" onClick={onDecreaseMonth} />}
-        rightChild={<Button text=">" onClick={onIncreaseMonth} />}
+        leftChild={<Button text={"<"} onClick={onDecreaseMonth} />}
+        rightChild={<Button text={">"} onClick={onIncreaseMonth} />}
       />
       <DiaryList
         data={filteredData}

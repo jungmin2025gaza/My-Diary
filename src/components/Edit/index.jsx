@@ -39,9 +39,9 @@ const Edit = () => {
   return (
     <div>
       <Header
-        title="일기 수정하기"
-        leftChild={<Button text="< 뒤로 가기" onClick={goBack} />}
-        rightChild={<Button type="negative" text="삭제하기" onClick={onClickDelete} />}
+        title={"일기 수정하기"}
+        leftChild={<Button text={"< 뒤로 가기"} onClick={goBack} />}
+        rightChild={<Button type={"negative"} text={"삭제하기"} onClick={onClickDelete} />}
       />
       <Editor
         initData={data}
