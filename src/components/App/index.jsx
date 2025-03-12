@@ -28,7 +28,7 @@ const reducer = (state, action) => {
 
     case "DELETE": {
       return state.filter((item) =>
-        String(item.id) !== String(action.data.id)
+        String(item.id) !== String(action.targetId)
       );
     }
 

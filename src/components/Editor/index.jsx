@@ -2,7 +2,7 @@ import "./styles.css";
 import Button from "../Button";
 import EmotionItem from "../EmotionItem";
 import { emotionList } from "../../utils/util";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Editor = ({ initData, onSubmit }) => {
@@ -13,6 +13,13 @@ const Editor = ({ initData, onSubmit }) => {
     emotionId: 3,
     content: "",
   });
+
+  useEffect(() => {
+    if (initData) {
+      setState({ ...initData });
+    }
+  }, [initData]);
+
 
   const handleChange = (e) => {
     setState({
