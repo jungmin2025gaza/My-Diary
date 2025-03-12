@@ -1,8 +1,8 @@
-import "./styles.css";
 import Button from "../Button";
 import Header from "../Header";
 import DiaryList from "../DiaryList";
 import { DiaryStateContext } from "../App";
+
 import { useState, useContext, useEffect } from "react";
 
 const Home = () => {
@@ -42,6 +42,6 @@ const Home = () => {
       />
     </div>
   );
-}
+};
 
 export default Home;

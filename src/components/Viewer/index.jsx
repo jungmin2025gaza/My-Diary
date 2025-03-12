@@ -3,7 +3,6 @@ import { emotionList } from "../../utils/util";
 
 const Viewer = ({ content, emotionId }) => {
   const emotionItem = emotionList.find((item) => item.id === emotionId);
-  console.log("emotionItem", emotionItem);
   return (
     <div className="Viewer">
       <section>
@@ -25,7 +24,8 @@ const Viewer = ({ content, emotionId }) => {
           <p>{content}</p>
         </div>
       </section>
-    </div >);
-}
+    </div >
+  );
+};
 
 export default Viewer;

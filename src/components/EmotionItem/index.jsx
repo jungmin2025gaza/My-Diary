@@ -1,5 +1,5 @@
-import React from "react";
 import "./styles.css";
+import React from "react";
 
 const EmotionItem = ({ id, img, name, onClick, isSelected }) => {
   const handleOnClick = () => {

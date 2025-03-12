@@ -3,7 +3,6 @@ import Home from "../Home";
 import New from "../New";
 import Diary from "../Diary";
 import Edit from "..//Edit";
-import mockData from "../../utils/data";
 import React, { useReducer, useRef, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -87,7 +86,7 @@ const App = () => {
         date,
         content,
         emotionId,
-      }
+      },
     });
   };
 
@@ -99,7 +98,7 @@ const App = () => {
   };
 
   if (!isDataLoaded) {
-    return <div>데이터를 불러오는 중입니다만...</div>
+    return <div>데이터를 불러오는 중입니다만...</div>;
   }
   return (
     <DiaryStateContext.Provider value={data}>

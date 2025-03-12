@@ -1,7 +1,9 @@
 import "./styles.css";
 import Button from "../Button";
 import EmotionItem from "../EmotionItem";
+
 import { emotionList } from "../../utils/util";
+
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -25,7 +27,7 @@ const Editor = ({ initData, onSubmit }) => {
     setState({
       ...state,
       [e.target.name]: e.target.value,
-    })
+    });
   };
 
   const handleSubmit = () => {
