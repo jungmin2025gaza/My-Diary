@@ -17,19 +17,25 @@ const reducer = (state, action) => {
     }
 
     case "CREATE": {
-      return [action.data, ...state];
+      const newState = [action.data, ...state];
+      localStorage.setItem("diary", JSON.stringify(newState));
+      return newState;
     }
 
     case "UPDATE": {
-      return state.map((item) =>
+      const newState = state.map((item) =>
         String(item.id) === String(action.data.id) ? { ...action.data } : item
       );
+      localStorage.setItem("diary", JSON.stringify(newState));
+      return newState;
     }
 
     case "DELETE": {
-      return state.filter((item) =>
+      const newState = state.filter((item) =>
         String(item.id) !== String(action.targetId)
       );
+      localStorage.setItem("diary", JSON.stringify(newState));
+      return newState;
     }
 
     default: {
@@ -41,13 +47,22 @@ const reducer = (state, action) => {
 const App = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [data, dispatch] = useReducer(reducer, []);
-  const idRef = useRef(6);
+  const idRef = useRef();
 
   useEffect(() => {
-    dispatch({
-      type: "INIT",
-      data: mockData,
-    });
+    const rawData = localStorage.getItem("diary");
+    if (!rawData) {
+      setIsDataLoaded(true);
+      return;
+    }
+    const localData = JSON.parse(rawData);
+    if (localData.length === 0) {
+      setIsDataLoaded(true);
+      return;
+    }
+    localData.sort((a, b) => Number(a.id) - Number(b.id));
+    idRef.current = localData[localData.length - 1].id + 1;
+    dispatch({ type: "INIT", data: localData });
     setIsDataLoaded(true);
   }, []);
 
@@ -73,7 +88,7 @@ const App = () => {
         content,
         emotionId,
       }
-    })
+    });
   };
 
   const onDelete = (targetId) => {
