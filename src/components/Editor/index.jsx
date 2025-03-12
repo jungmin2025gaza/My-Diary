@@ -2,7 +2,7 @@ import "./styles.css";
 import Button from "../Button";
 import EmotionItem from "../EmotionItem";
 import { emotionList } from "../../utils/util";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Editor = ({ initData, onSubmit }) => {
@@ -36,12 +36,12 @@ const Editor = ({ initData, onSubmit }) => {
     navigate(-1);
   };
 
-  const handleChangeEmotion = (emotionId) => {
+  const handleChangeEmotion = useCallback((emotionId) => {
     setState({
       ...state,
       emotionId,
     });
-  };
+  }, []);
 
   return (
     <div className="Editor">
