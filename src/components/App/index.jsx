@@ -15,6 +15,7 @@ const reducer = (state, action) => {
     case "INIT": {
       return action.data;
     }
+
     case "CREATE": {
       return [action.data, ...state];
     }
@@ -91,7 +92,7 @@ const App = () => {
         value={{
           onCreate,
           onUpdate,
-          onDelete
+          onDelete,
         }}
       >
         <div className="App">

@@ -22,8 +22,8 @@ const Home = () => {
   useEffect(() => {
     setFilteredData(
       data.filter((singleData) => {
-        if (singleData.date.split("-")[0] == pivotDate.getFullYear() &&
-          singleData.date.split("-")[1] == (pivotDate.getMonth() + 1).toString().padStart(2, "0")) {
+        if (new Date(singleData.date).getFullYear() == pivotDate.getFullYear() &&
+          new Date(singleData.date).getMonth() === pivotDate.getMonth()) {
           return singleData;
         }
       })
